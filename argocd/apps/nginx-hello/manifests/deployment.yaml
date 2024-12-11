@@ -15,7 +15,7 @@ spec:
         app: nginx-hello-gitops
     spec:
       containers:
-        - name: nginx-hello
+        - name: nginx-hello-gitops
           image: nginxdemos/hello:latest
           ports:
             - containerPort: 80

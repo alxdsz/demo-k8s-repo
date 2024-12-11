@@ -32,10 +32,29 @@ kind: Service
 metadata:
   name: nginx-hello
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
-      protocol: TCP
   selector:
     app: nginx-hello
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-hello
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: demo.209.38.112.61.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-hello
+                port:
+                  number: 80

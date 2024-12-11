@@ -11,7 +11,7 @@ spec:
     path: argocd/apps/nginx-hello/manifests
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    namespace: nginx-hello
   syncPolicy:
     automated:
       prune: true

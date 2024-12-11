@@ -3,10 +3,30 @@ kind: Service
 metadata:
   name: nginx-hello-gitops
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   ports:
     - port: 80
       targetPort: 80
       protocol: TCP
   selector:
     app: nginx-hello-gitops
+
+---
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-hello-gitops
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: demo-gitops.209.38.112.61.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-hello-gitops
+                port:
+                  number: 80

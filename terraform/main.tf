@@ -1,7 +1,7 @@
 resource "digitalocean_kubernetes_cluster" "demo" {
   name    = var.cluster_name
   region  = var.region
-  version = "1.28.2-do.0"  # Check DO for latest version
+  version = "1.31.1-do.5"
 
   node_pool {
     name       = "worker-pool"
@@ -36,7 +36,7 @@ resource "helm_release" "argocd" {
   chart            = "argo-cd"
   namespace        = "argocd"
   create_namespace = true
-  version          = "5.51.6"  # Check for latest version
+  version          = "7.7.9"
 
   values = [
     <<-EOT

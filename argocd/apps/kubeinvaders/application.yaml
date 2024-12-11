@@ -6,16 +6,19 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/lucky-sideburn/KubeInvaders
-    targetRevision: main
-    path: helm
+    repoURL: https://lucky-sideburn.github.io/helm-charts/
+    chart: kubeinvaders
+    targetRevision: 1.9.8
     helm:
       values: |
+        ingress:
+          enabled: true
+          className: nginx
+          hostName: kubeinvaders.209.38.112.61.nip.io 
         service:
-          type: LoadBalancer
-        route_host: kubeinvaders.local
-        namespace_regexp: ^default$
-        target_namespace: "default"
+          type: ClusterIP
+        config:
+          target_namespace: basic-depoly
   destination:
     server: https://kubernetes.default.svc
     namespace: kubeinvaders
