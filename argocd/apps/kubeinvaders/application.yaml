@@ -14,7 +14,7 @@ spec:
         ingress:
           enabled: true
           className: nginx
-          hostName: kubeinvaders.209.38.112.61.nip.io 
+          hostName: kubeinvaders-gitops.209.38.112.61.nip.io 
         service:
           type: ClusterIP
         config:
