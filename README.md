@@ -34,20 +34,20 @@ do_token = "your-token-here"
 1. Initialize and apply Terraform:
 ```bash
 cd terraform
-terraform init
-terraform apply
+tofu init
+tofu apply
 ```
 
 2. Configure kubectl:
 ```bash
-terraform output -raw kubeconfig > ~/.kube/config
+tofu output -raw kubeconfig > ~/.kube/config
 ```
 
 ### 3. Access ArgoCD
 
 1. Get the ArgoCD IP:
 ```bash
-terraform output argocd_ip
+tofu output argocd_ip
 ```
 
 2. Get the initial admin password:
