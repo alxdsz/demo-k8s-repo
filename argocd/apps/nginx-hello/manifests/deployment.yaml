@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hello-gitops
+  labels:
+    app: nginx-hello-gitops
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-hello-gitops
+  template:
+    metadata:
+      labels:
+        app: nginx-hello-gitops
+    spec:
+      containers:
+        - name: nginx-hello
+          image: nginxdemos/hello:latest
+          ports:
+            - containerPort: 80
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "100m"
+            limits:
+              memory: "128Mi"
+              cpu: "200m"
