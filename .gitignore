@@ -26,3 +26,5 @@ kubeconfig
 *.pem
 *.cert
 *.password
+
+tmp.json
