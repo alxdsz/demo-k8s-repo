@@ -20,7 +20,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-    - host: demo-gitops.{CLUSTER_IP}.nip.io
+    - host: demo-gitops.209.38.112.155.nip.io
       http:
         paths:
           - path: /
