@@ -5,7 +5,7 @@ metadata:
   labels:
     app: nginx-hello-gitops
 spec:
-  replicas: 10
+  replicas: 5
   selector:
     matchLabels:
       app: nginx-hello-gitops
